@@ -1,0 +1,34 @@
+
+plugins {
+    id 'org.springframework.boot' version '2.7.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework:spring-aspects'
+
+    // Chaos Monkey for Spring Boot
+    implementation 'de.codecentric:chaos-monkey-spring-boot:2.7.0'
+
+    // Optional but recommended:
+    implementation 'io.github.resilience4j:resilience4j-spring-boot2:1.7.1'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    testImplementation 'com.intuit.karate:karate-junit5:1.4.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
